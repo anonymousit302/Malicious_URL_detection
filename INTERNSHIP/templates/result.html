@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <style>
+        p{
+            color : white;
+        }
+    </style>
+    <script>
+        var x = '{{ value }}';
+        if (x < 1) {
+            // document.getElementById('result').innerHTML = num + ' is a Prime number';
+            var imageshown = "./static/down.jpeg"
+        } else {
+            // document.getElementById('result').innerHTML = num + ' is NOT a Prime number';
+            var imageshown = "./static/up.jpeg"
+        }
+        document.getElementById('img').src = imageshown;
+  </script>
+</head>
+
+<body style="background-image: url('/static/bg.png');" onLoad="myFunction();">
+    <div id="write">
+        <p>The submitted url is : {{value2}}</p>
+        <p>Our prediction for the url is : </p>
+        <!-- <p style="color: aliceblue; margin-top: 150px; margin-left: 550px; font-size: 30px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">The Entered URL is: </p> -->
+        <!-- <p>'{{value2}}'</p> -->
+        <img src="{{ url_for('static', filename='up.jpeg') }}"></img>
+        <img src="{{ url_for('static', filename='down.jpeg') }}"></img>
+        <img src="{{ url_for('static', filename=img_url) }}"></img>
+        
+    </div>
+    <br>
+    <img style="margin-top: 100px; margin-left: 550px;" id="image" src="" />
+</body>
+
+</html>
